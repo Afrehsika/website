@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+ {% include 'academic/mainnavbar.html' %} 
+    <main id="main">
+  
+        <section id="hero" class="d-flex justify-content-center align-items-center">
+            <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+              <h1>Welcome to our Departments<br>only the best that we offer</h1>
+              <h2>Are you ready to walk through our programs</h2>
+              <a href="{%url 'program' %}" class="btn-get-started">Check Our programs</a>
+            </div>
+          </section>
+  
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row row-cols-1 row-cols-lg-3  g-4 py-5">
+            {% for m in main  %}
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                    {% if m.image  %}
+                  <img src="{{m.image.url}}">
+                  {% endif %}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="{% url 'detailed-department' department_id=m.id %}">{{m.header}}</a></h5>
+                  <p class="card-text">{{m.detail}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End Events Section -->
+  
+    </main><!-- End #main -->
+  
+    <!-- ======= Footer ======= -->
+   <!-- End Footer -->
+  
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  
+
+{% endblock content %}

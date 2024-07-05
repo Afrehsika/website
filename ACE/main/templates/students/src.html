@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example"> 
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample1012"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="navbarsExample10">
+            <svg class="bi bi-chevron-down" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg" style="color: white;">
+                <path fill-rule="evenodd"
+                    d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 11.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                    clip-rule="evenodd" />
+            </svg>
+        </button>
+     
+  
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample1012" style="height:70px;">
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link active">Check Admissions Status</a></li>
+          <li class="nav-item"><a href="{% url 'alumni' %}" class="nav-link active">Alumni</a></li>
+          <li class="nav-item"><a href="{% url 'staff' %}" class="nav-link active">Staff Directory</a></li>
+          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link active">Contact & location</a></li>
+          <li class="nav-item"><a href="{% url 'libraries' %}" class="nav-link active">Libraries</a></li>
+          <li class="nav-item"><a href="{% url 'management' %}" class="nav-link active">Management</a></li>
+        </ul>
+        <div class="mx-5 d-flex" >
+          <a href="https://web.facebook.com/akrocoeofficial/?_rdc=1&_rdr"> <i class="bi bi-facebook" style="font-size: 1.5rem; color: white;"></i></a>
+          <a href="https://www.youtube.com/@acemedia5678"><i class="bi bi-youtube"style="font-size: 1.5rem; color: white;"></i></a>
+          <a href="#"><i class="bi bi-instagram"style="font-size: 1.5rem; color: white;"></i></a>
+          <a href="https://twitter.com/akrokerrio?lang=en"><i class="bi bi-twitter"style="font-size: 1.5rem; color: white;"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="container " >
+    <header class="d-flex flex-wrap justify-content-center py-2 mb-1 me-md-auto ">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <img src="{% static 'src.jpg' %}" width="100" height="120">
+        <span><img src="{% static 'akr3.jpg' %}" width="200" height="70" ></span>
+      </a>
+    </header>
+  </div>
+
+ <!-- Responsive navbar-->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example">
+    <div class="container">
+        <a class="navbar-brand text-light" href="#!">SRC</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#!">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Header - set the background image for the header in the line below-->
+
+<!-- Content section-->
+    <section class="p-0">
+     <!-- Slides with fade transition -->
+     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for slide in slider %}
+          <div class="carousel-item {% if forloop.first %}
+           active {% endif %}">
+                {% if slide.image  %}
+            <img src="{{slide.image.url}}" class="h-100 w-100" height="80" alt="...">
+                {% endif %}
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="carousel-caption  d border border-dark bg-dark bg-opacity-10 py-3 m-5">
+                            <h5 class="fw-bold fs-4 text-white border-bottom border-danger">{{slide.title}}</h5>
+                            <p class="text-primary fw-bold">{{slide.description}}</p>
+                        </div>
+                    </div>
+                </div>
+          </div>
+          {% endfor %}
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+      </div><!-- End Slides with fade transition -->
+    </section>
+
+    <section class="py-2">
+        <div class="container my-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2>{{detail.header}}</h2>
+                    <p class="lead fw-bold">{{detail.body}}</p>
+                   
+            </div>
+        </div>
+    </section>
+
+    <section class="m-5 ">
+        <div class="section-title">
+            <h2>THE SRC EXECUTIVES</h2>
+          </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card bg-primary border border-primary bg-opacity-10">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        
+                        <div class="carousel-inner">
+                            {% for exe in executive  %}
+                          <div class="carousel-item {% if forloop.first %}active {% endif %}">
+                            {% if exe.image %}
+                            <img src="{{exe.image.url}}" class="card-img-top" alt="...">
+                            {% endif %}
+                            <div class="card-body bg-primary border border-primary bg-opacity-10">
+                                <h5 class="card-title text-center text-white border-bottom bg-info border-info bg-opacity-10 py-4 border-start">{{exe.name}}</h5>
+                                <p class="card-text text-success  fw-bold font-monospace fs-4 text-center border-top bg-info border-info bg-opacity-10 py-4 border-end">{{exe.position}}</p>
+                            </div>
+                          </div>
+                          {% endfor %}
+        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+        
+                      </div>
+                </div>
+        </div>
+    </section>
+<!-- Content section-->
+<section class="py-2 m-3 ">
+    <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="section-title ">About SRC</h5>
+
+              <!-- Default Accordion -->
+              <div class="accordion" id="accordionExample">
+                {% for about in about %}
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{about.id}}" aria-expanded="true" aria-controls="collapseOne">
+                      {{about.header}}
+                    </button>
+                  </h2>
+                  <div id="{{about.id}}" class="accordion-collapse collapse {% if forloop.first %}
+                  show {% endif %}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{about.detail|safe}}
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div> 
+            </div>
+        </div>
+    </div>      
+              
+</section>
+
+
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include "home/header.html" %}
+
+ <!-- Responsive navbar-->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example">
+    <div class="container">
+        <a class="navbar-brand text-light" href="#!">ACADEMIC CALENDER</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="#!">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Header - set the background image for the header in the line below-->
+
+<!-- Content section-->
+<section class="py-5">
+    <h3> ACADEMIC CALENDER</h3>
+    <div class="container my-5">
+        {% for calender  in calender %}
+        <div class="row justify-content-center">
+            <div class="col-lg-6 document-item">
+                <h1>{{calender.title}} FOR {{calender.academic_year}}</h1>
+                <div class="file-icon" style="font-size: 100px;"><i class="bi bi-file-earmark-text"  style='color: cornflowerblue'></i><br>
+                <a class="document-link" href="{{ calender.file.url}}" target="_blank"><h4> {{calender.title}} {{calender.academic_year}}  </h4></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,95 @@
+   {% load static %}
+   <nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example">
+    <div class="container-fluid">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+        <ul class="navbar-nav ">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+
+           <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Academics
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">  
+            <li><a class="dropdown-item" href="{%url 'main-department' %}">Academic Department</a></li>
+            <li><a class="dropdown-item" href="{%url 'program' %}">Academic Program</a></li>
+            <li><a class="dropdown-item" href="{%url 'calender' %}">Academic Calender</a></li>
+            <li><a class="dropdown-item" href="{%url 'research' %}">Research</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Students
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="https://apps.knust.edu.gh/students/Account/Login">Students' Portal</a></li>
+            <li><a class="dropdown-item" href="{%url 'src' %}">SRC</a></li>
+            <li><a class="dropdown-item" href="{%url 'hall' %}">Accomodation</a></li>
+            <li><a class="dropdown-item" href="{%url 'dean' %}">Office of the Dean </a></li>
+            <li><a class="dropdown-item" href="{%url 'sts' %}">STS</a></li>
+            <li><a class="dropdown-item" href="{%url 'freshmen' %}">Freshmen Guideline</a></li>
+            
+          </ul>
+        </li>
+
+           <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Admissions
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="https://admission.coeportal.edu.gh/admissionrequirements.html">How to apply</a></li>
+            <li><a class="dropdown-item" href="{%url 'program' %}">Programs</a></li>
+            <li><a class="dropdown-item" href="https://admission.coeportal.edu.gh/admissionrequirements.html">Entry Requirement</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            News & Media
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="{% url 'acemedia' %}">ACE media</a></li>
+            <li><a class="dropdown-item" href="{% url 'desk' %}">Annoucement</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Groups & Societies
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="{% url 'church' %}">Denominations</a></li>
+            <li><a class="dropdown-item" href="{% url 'music' %}">Live band</a></li>
+            <li><a class="dropdown-item" href="{% url 'cultural' %}">Cultural Group</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            About Us
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="{% url 'history' %}">College History</a></li>
+            <li><a class="dropdown-item" href="{% url 'vision' %}">Vision & Mission & Values</a></li>
+            <li><a class="dropdown-item" href="{% url 'facilities' %}">College Campus</a></li>
+            <li><a class="dropdown-item" href="{% url 'emblem' %}">Emblem</a></li>
+            <li><a class="dropdown-item" href="{% url 'anthem' %}">College Anthem</a></li>
+            <li><a class="dropdown-item" href="{% url 'past' %}">Principals</a></li>
+            
+
+          </ul>
+        </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>

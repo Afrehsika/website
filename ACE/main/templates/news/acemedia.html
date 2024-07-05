@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example"> 
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample1012"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="navbarsExample10">
+          <svg class="bi bi-chevron-down" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" style="color: white;">
+              <path fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 11.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                  clip-rule="evenodd" />
+          </svg>
+      </button>
+   
+
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample1012" style="height:70px;">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active">Check Admissions Status</a></li>
+        <li class="nav-item"><a href="{% url 'alumni' %}" class="nav-link active">Alumni</a></li>
+        <li class="nav-item"><a href="{% url 'staff' %}" class="nav-link active">Staff Directory</a></li>
+        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link active">Contact & location</a></li>
+        <li class="nav-item"><a href="{% url 'libraries' %}" class="nav-link active">Libraries</a></li>
+        <li class="nav-item"><a href="{% url 'management' %}" class="nav-link active">Management</a></li>
+      </ul>
+      <div class="mx-5 d-flex" >
+        <a href="https://web.facebook.com/akrocoeofficial/?_rdc=1&_rdr"> <i class="bi bi-facebook" style="font-size: 1.5rem; color: white;"></i></a>
+        <a href="https://www.youtube.com/@acemedia5678"><i class="bi bi-youtube"style="font-size: 1.5rem; color: white;"></i></a>
+        <a href="#"><i class="bi bi-instagram"style="font-size: 1.5rem; color: white;"></i></a>
+        <a href="https://twitter.com/akrokerrio?lang=en"><i class="bi bi-twitter"style="font-size: 1.5rem; color: white;"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container " >
+  <header class="d-flex flex-wrap justify-content-center py-2 mb-1 me-md-auto ">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <img src="{% static 'media.jpg' %}" width="120" height="120">
+      <span><img src="{% static 'akr3.jpg' %}" width="200" height="70" ></span>
+    </a>
+  </header>
+</div>
+
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example">
+  <div class="container">
+      <a class="navbar-brand text-light" href="#!">ACE MEDIA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+              <li class="nav-item"><a class="nav-link text-light" href="#!">About</a></li>
+              <li class="nav-item"><a class="nav-link text-light" href="#!">Contact</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<section id="blog" class="blog">
+  <div class="section-title">
+    <h2>Latest News</h2>
+  </div>
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+
+        <div class="col-lg-8 entries">
+            {% for n in page.object_list %}
+            
+          <article class="entry">
+
+            <div class="entry-img">
+                {% if n.image %}
+              <img src="{{n.image.url}}" alt="" class="img-fluid">
+              {% endif %}
+            </div>
+
+            <h2 class="entry-title">
+              <a href="blog-single.html">{{n.description|safe}}</a>
+            </h2>
+
+            <div class="entry-content">
+              <p>
+               {{n.detail|truncatewords_html:30|safe}}
+              </p>
+              <div class="read-more">
+                <a href="{% url 'detailed-news' news_id=n.id %}">Read More</a>
+              </div>
+            </div>
+
+          </article><!-- End blog entry -->
+          {% endfor %}
+         
+         
+
+         
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="sidebar">
+
+            <h3 class="sidebar-title">PRESS RELEASE</h3>
+            <div class="sidebar-item search-form">
+                {% for press in press  %}
+              <div class="post-preview">
+                  <a href="{%url 'detailed-press' press_id=press.id%}"  class="text-decoration-none">
+                      <h5 class="post-subtitle ">{{press.header}}</h5>
+                  </a>
+                  <p class="post-meta">
+                    released on: {{press.created_on}}
+                  </p>
+                  
+              </div>
+              {% endfor %}
+            </div>
+
+                {% for news in news %}
+            <h3 class="sidebar-title">Recent News</h3>
+            <div class="sidebar-item recent-posts">
+              <div class="post-item clearfix">
+                {% if news.image %}
+                <img src="{{news.image.url}}">
+                {% endif %}
+                <h4><a href="blog-single.html">{{news.description|truncatewords_html:8|safe}}</a></h4>
+                <time datetime="2020-01-01">{{news.created_on}}</time>
+              </div>
+              {% endfor %}
+
+            </div>
+
+            <h3 class="sidebar-title">College site </h3>
+            <div class="sidebar-item tags">
+              <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'history' %}">History</a></li>
+                <li><a href="{% url 'vision' %}">Vision</a></li>
+                <li><a href="{% url 'student' %}">Student</a></li>
+                <li><a href="{% url 'staff' %}">staff</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <<div class="container">
+    <div class= "row my-5">
+        <div class="col-md-4 offset-md-3">
+            <p>Page: {{page.number}}/{{page.paginator.num_pages}}</p>
+            <nav aria-label="...">
+                <ul class="pagination">
+                <li class="page-item">
+                    {% if page.has_previous %}
+                    <a class="page-link" href="{% url 'acemedia'%}?page={{ page.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a>
+                    {% endif %} 
+                </li>
+                {% for num_page in page.paginator.page_range %}
+                {% if page.number == num_page%}
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="{% url 'acemedia'%}?page={{ num_page}}">{{num_page}}</a>
+                </li>
+                {%else%}
+                <li class="page-item " aria-current="page">
+                    <a class="page-link" href="{% url 'acemedia'%}?page={{ num_page}}">{{num_page}}</a>
+                </li>
+                {%endif %}
+                {% endfor%}
+                <li class="page-item">
+                    {% if page.has_next%}
+                    <a class="page-link" href="{% url 'acemedia'%}?page={{ page.next_page_number}}">Next</a>
+                    {% endif %}
+                </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

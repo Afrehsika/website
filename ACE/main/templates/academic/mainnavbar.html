@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="container">
+
+    <header class="d-flex flex-wrap justify-content-center py-2 mb-1 me-md-auto ">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+       <img src="{% static 'ace3.jpg' %}" width="140" height="120">
+       <span><img src="{% static 'akr3.jpg' %}" width="200" height="70" ></span>
+      </a>
+    </header>
+  </div>
+ 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-col " aria-label="Twelfth navbar example">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-6" aria-current="page" href="{%url 'main-department' %}">Departments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-6" href="{%url 'program' %}">Programs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-6"  href="{%url 'calender' %}" >Calender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-6"  href="{%url 'research' %}" >Research</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

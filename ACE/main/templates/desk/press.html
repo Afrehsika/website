@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<header>
+    <div class="container " >
+  
+        <header class="d-flex flex-wrap justify-content-center py-2 mb-1 me-md-auto ">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+           <img src="{% static 'ace3.jpg' %}" width="140" height="120">
+           <span><img src="{% static 'akr3.jpg' %}" width="200" height="70" ></span>
+          </a>
+        </header>
+      </div>
+
+    
+        {% include "home/navbar.html" %}
+ 
+ <!-- Page content-->
+ <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{detailedpress.header}}</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Posted on {{detailedpress.created_on}}</div>
+                    <!-- Post categories-->
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                </header>
+                <!-- Preview image figure-->
+                {% if detailedpress.image %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{detailedpress.image.url}}" /></figure>
+                {% endif%}
+                <!-- Post content-->
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{detailedpress.detail|safe}}</p>
+            </article>
+            <!-- Comments section-->
+            
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Web Design</a></li>
+                                <li><a href="#!">HTML</a></li>
+                                <li><a href="#!">Freebies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!">CSS</a></li>
+                                <li><a href="#!">Tutorials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Side Widget</div>
+                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
